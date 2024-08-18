@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spline 3D Scene</title>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.15/build/spline-viewer.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Embed the Spline Scene -->
+    <spline-viewer id="splineScene" url="https://prod.spline.design/INCu9OXIdiMNYfuO/scene.splinecode"></spline-viewer>
+
+    <script>
+        // Listen for messages from the iPhone
+        window.addEventListener('message', function(event) {
+            const motionData = event.data;
+
+            // Validate that the message contains the expected data
+            if (motionData && typeof motionData === 'object') {
+                updateSplineScene(motionData);
+            }
+        });
+
+        function updateSplineScene(data) {
+            // Example: Update the position or rotation of an object in the Spline scene
+            // You can call Spline's API methods here, depending on your setup
+
+            console.log('Received motion data:', data);
+            // Here you need to implement the logic to update the 3D scene based on `data.x`, `data.y`, `data.z`
+        }
+    </script>
+</body>
+</html>
